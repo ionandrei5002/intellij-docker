@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cache="/home/andrei/dockerbuilds/intellij-docker/.cache"
-intellij="/home/andrei/dockerbuilds/intellij-docker/.IntelliJIdea2019.2"
+intellij="/home/andrei/dockerbuilds/intellij-docker/.IntelliJIdea2019.3"
 java="/home/andrei/dockerbuilds/intellij-docker/.java"
 projects="/home/andrei/IdeaProjects"
 
@@ -37,10 +37,10 @@ else
     echo "Directory $projects created."
 fi
 
-docker run --rm -it -e DISPLAY=$DISPLAY \
+docker run --rm -d -e DISPLAY=$DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v $cache:/home/andrei/.cache \
-    -v $intellij:/home/andrei/.IntelliJIdea2019.2 \
+    -v $intellij:/home/andrei/.IntelliJIdea2019.3 \
     -v $java:/home/andrei/.java \
     -v $projects:/home/andrei/IdeaProjects \
     --env _JAVA_AWT_WM_NONREPARENTING=1 \
