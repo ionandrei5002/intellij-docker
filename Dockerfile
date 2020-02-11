@@ -4,6 +4,13 @@ ARG username
 
 USER root
 
+RUN apt update && \
+    apt install -y maven
+
+RUN apt clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm -rf /tmp/*
+
 RUN wget https://download.jetbrains.com/idea/ideaIU-2019.3.1.tar.gz -O /tmp/ideaIU-2019.3.1.tar.gz && \
     mkdir /app && \
     cd /app && tar -xvf /tmp/ideaIU-2019.3.1.tar.gz && \
