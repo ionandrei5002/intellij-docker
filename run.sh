@@ -43,6 +43,9 @@ docker run --rm -d -e DISPLAY=$DISPLAY \
     -v $intellij:/home/andrei/.IntelliJIdea2019.3 \
     -v $java:/home/andrei/.java \
     -v $projects:/home/andrei/IdeaProjects \
+    --add-host=mariadb:172.17.0.2 \
+    --add-host=mariadb1:172.17.0.3 \
     --env _JAVA_AWT_WM_NONREPARENTING=1 \
     --env AWT_TOOLKIT=MToolkit \
+    --name=intellij \
     intellij-docker:latest
